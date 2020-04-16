@@ -90,9 +90,16 @@
       <script type="text/javascript" src="js/materialize.min.js"></script>
 
       <script>
-          $(document).ready(function(){
+          /*$(document).ready(function(){
           $('.sidenav').sidenav();
         
+          });
+          */
+          document.addEventListener('DOMContentLoaded' , () => {
+              
+             let sidenav = document.querySelector('.sidenav');
+             M.Sidenav.init(sidenav);
+              
           });
 
           $(document).ready(function(){
