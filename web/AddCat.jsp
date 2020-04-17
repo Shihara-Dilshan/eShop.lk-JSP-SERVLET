@@ -49,7 +49,7 @@
      <%@ include file="includes\adminheaderNormal.jsp"  %>  
             
      
-      <form action="addCategory" method="post" >  
+      <form action="addCategory" method="post" enctype="multipart/form-data">  
       <div class="container" id="myForm" >
       
       <div class="card-panel z-depth-3">
@@ -73,14 +73,14 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea id="textarea" class="materialize-textarea" name="bmanufast"></textarea>
-          <label for="description">Description</label>
+          <label for="bmanufast">Description</label>
         </div>
       </div>
       <br>
       <div class="row">
           <div class="input-feild col s12 ">  
-               <label for="password">Select an image</label>
-              <input type="file" class="validate" >
+               <label for="bimage">Select an image</label>
+              <input type="file" name="bimage" >
               
              
           </div>

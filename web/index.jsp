@@ -1,3 +1,9 @@
+<%@page import="java.io.OutputStream"%>
+<%@page import="java.sql.Blob"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="lk.eShop.dao.DataSource"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,288 +82,52 @@
     </div>
 </section>
 
+
 <section id="popular" class="section section-popular scrollspy">
     <div class="container">
-       <div class="row">
-        <h4 class="center"><span class="teal-text">Popular</span> items</h4>
-          <div class="col s12 m4">
-            <div class="card">
-                <div class="card-image"> 
-                    <!--a href="#" class="halfway-fab btn-floating pink pulse">
-                            <i class="material-icons right">zoom_in</i>
-                    </a-->
-                    <img src="image/photo-of-nike-shoes-1598505.jpg"> <!-- random image -->
-                    <span class="card-title">
-                        Shoes
-                    </span>
+        <div class="row">
 
+            <h4 class="center"><span class="teal-text">Popular</span> items</h4>
+            <%
+                DataSource source = new DataSource();
+                Connection con = source.createConnection();
+                PreparedStatement st = con.prepareStatement("select * from category");
+    
+                ResultSet rs =st.executeQuery();
+                while(rs.next()){
+                
+                  
+
+            %>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            
+                            <img src="image/<%=rs.getString("CfileName") %>">
+                            <span class="card-title"><%=rs.getString("Cname") %></span>
+                        </div>
+                        <div class="card-content">
+                            <p><%=rs.getString("CDescription") %></p>
+                        </div>
+                        <div class="card-action">
+                           
+                             <a href="#" class="btn" style="width:100%;">Check out</a>
+                  
+                        </div>
+                    </div>
                 </div>
-            
-              <div class="card-content">
-              <span>
-                  nike , adidas and many more branded shoes.<span class="teal-text"> upto 20% discounts <span> 
-              </span>
+                 
+            <% } %>
                 
-              </div>
-              <div class="card-action"> 
-              <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
             </div>
-
-
-            </div>
+                       
             
-          
-          </div>
-          <div class="row">
-          <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image"> 
-
-              <img src="image/silver-iphone-x-with-airpods-788946.jpg"> 
-              <span class="card-title black-text">
-              Mobile Phones
-              </span>
-
-              </div>
-              <div class="card-content">
-              <span>
-                  Samsung , Apple , Huwaei and many more. <span class="teal-text">upto 15% discounts</span> 
-                </span>
-                
-              </div>
-              <div class="card-action"> 
-              <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
-              </div>
-
-            </div>
-          
-          
-          </div>
-          <div class="row">
-          <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image"> 
-
-              <img src="image/background-business-computer-connection-303383.jpg">
-              <span class="card-title">
-              Laptops
-              </span>
-
-              </div>
-              <div class="card-content">
-              <span>
-                  Asus , Acer , Dell and many more. <span class="teal-text">upto 30% discounts</span> 
-                </span>
-                <!--a href="#">
-                      <i class="material-icons right">zoom_in</i>
-                </a-->
-              </div>
-              <div class="card-action"> 
-              <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
-              </div>
-
-            </div>
-            
-          
-          </div>
-        
-        </div>
         </div>
         
-        </div>
-        
-        <div class="row scrollspy">
-        
-          <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image"> 
+    </div>
+</section>
 
-              <img src="image/apple-technology-ipad-computer-38568.jpg"> <!-- random image -->
-              <span class="card-title black-text">
-              Desktop Computers
-              </span>
-
-              </div>
-              <div class="card-content">
-              <span>
-                  Asseble your dream PC with high end Parts <span class="teal-text">upto 40% discounts</span> 
-                </span>
-                <!--a href="#">
-                      <i class="material-icons right">zoom_in</i>
-                </a-->
-              </div>
-              <div class="card-action"> 
-              <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
-              </div>
-
-            </div>
-            
-          
-          </div>
-          <div class="row">
-          <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image"> 
-
-              <img src="image/person-holding-book-from-shelf-1370298.jpg"> 
-              <span class="card-title black-text">
-              EBooks
-              </span>
-
-              </div>
-              <div class="card-content">
-              <span>
-                  100+ catogories , Education , novel and many more <span class="teal-text">Buy 5 get 1 free</span> 
-                </span>
-                <!--a href="#">
-                      <i class="material-icons right">zoom_in</i>
-                </a-->
-              </div>
-              <div class="card-action"> 
-              <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
-              </div>
-
-            </div>
-          
-          
-          </div>
-          <div class="row">
-          <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image"> 
-
-              <img src="image/high-angle-view-of-shoes-322207.jpg">
-              <span class="card-title black-text">
-              Fasions
-              </span>
-
-              </div>
-              <div class="card-content">
-              <span>
-                  Perfumes , Bags , branded clothes <span class="teal-text"> instance Discounts</span> 
-                </span>
-                <!--a href="#">
-                      <i class="material-icons right">zoom_in</i>
-                </a-->
-              </div>
-              <div class="card-action"> 
-              <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
-              </div>
-
-            </div>
-          
-          
-          </div>
-        
-          
-
-
-
-        </div>
-        
-        </div>
-        
-        </div>
-        <div class="row">
-        
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image"> 
-
-            <img src="image/black-and-gray-slr-camera-and-black-fujifilm-dslr-camera-3497065.jpg"> <!-- random image -->
-            <span class="card-title white-text">
-            Cameras
-            </span>
-
-            </div>
-            <div class="card-content">
-            <span>
-                Veriery of cameras including fuji , Panasonic <span class="teal-text"> upto 40% discounts</span> 
-              </span>
-              <!--a href="#">
-                    <i class="material-icons right">zoom_in</i>
-              </a-->
-            </div>
-            <div class="card-action"> 
-            <a href="#" class="btn" style="width:100%;">Check out</a>
-
-              </div>  
-          </div>
-          
-        
-        </div>
-        <div class="row">
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image"> 
-
-            <img src="image/tomica-cars-collections-163696.jpg"> 
-            <span class="card-title white-text">
-            Toys
-            </span>
-
-            </div>
-            <div class="card-content">
-            <span>
-                10000+ different toys available at or store <span class="teal-text">Buy 5 get 1 free</span> 
-              </span>
-              <!--a href="#">
-                    <i class="material-icons right">zoom_in</i>
-              </a-->
-            </div>
-            <div class="card-action"> 
-            <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
-              </div>
-
-          </div>
-        
-        
-        </div>
-<div class="row">
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image"> 
-
-            <img src="image/ball-court-design-game-209977.jpg">
-            <span class="card-title white-text">
-            Sports Items
-            </span>
-
-            </div>
-            <div class="card-content">
-            <span>
-                Perfumes , Bags , branded clothes <span class="teal-text"> instance Discounts</span> 
-              </span>
-              <!--a href="#">
-                    <i class="material-icons right">zoom_in</i>
-              </a-->
-            </div>
-            <div class="card-action"> 
-            <a href="#" class="btn" style="width:100%;">Check out</a>
-                  
-
-</div>
-
-
-     </div>
-        
-    
-    
-</section>  
 
 
 <section class="section section-icons grey lighten-4 center scrollspy">
