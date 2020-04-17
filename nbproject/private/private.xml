@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/addItem.jsp</file>
-            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/adminlogin.jsp</file>
-            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/adminindex.jsp</file>
-            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/addProduct.jsp</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/src/java/lk/eShop/dao/UserDao.java</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/src/java/lk/eShop/signup.java</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/includes/adminfooter.jsp</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/js/removeVal.js</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/src/java/lk/eShop/dao/DataSource.java</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/src/java/lk/eShop/dao/UserDaoImplement.java</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/index.jsp</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/includes/headerNormal.jsp</file>
+            <file>file:/home/noobmaster/NetBeansProjects/WebApplication3/web/includes/Navbar.jsp</file>
         </group>
     </open-files>
 </project-private>

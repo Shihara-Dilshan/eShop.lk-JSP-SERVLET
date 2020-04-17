@@ -1,3 +1,8 @@
+<%-- 
+    Document   : AddCat
+    Created on : Apr 17, 2020, 3:09:17 PM
+    Author     : noobmaster
+--%>
      
     <%
         if(session.getAttribute("adminemail") == null){
@@ -44,21 +49,21 @@
      <%@ include file="includes\adminheaderNormal.jsp"  %>  
             
      
-      <form action="addBrand" method="post" >  
+      <form action="addCategory" method="post" >  
       <div class="container" id="myForm" >
       
       <div class="card-panel z-depth-3">
         <div class="row">
         <div class="col s12">
             <div class="card-title center-align teal-text">
-                <h4>Add a brand</h4>
+                <h4>Add a Category</h4>
             </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="text" class="validate" name="bname">
-          <label for="email">Brand Name</label>
+          <input id="name" type="text" class="validate" name="bname">
+          <label for="name">Category Name</label>
         </div>
       </div>
   
@@ -67,8 +72,8 @@
       
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="text" class="validate" name="bmanufast">
-          <label for="password">Manufacture's name</label>
+          <textarea id="textarea" class="materialize-textarea" name="bmanufast"></textarea>
+          <label for="description">Description</label>
         </div>
       </div>
       <br>

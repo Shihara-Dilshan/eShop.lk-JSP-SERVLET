@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import lk.eShop.dao.adminLoginDao;
-import lk.eShop.dao.loginDao;
+import lk.eShop.dao.UserDaoImplement;
 
 
 
@@ -31,20 +30,25 @@ public class adminlogin extends HttpServlet {
         this.password = password;
     }
     
+    public adminlogin(){
+        
+        
+        
+    }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         
-      
+            UserDaoImplement Adao = new UserDaoImplement();
             
             setName(request.getParameter("email"));
             setPassword(request.getParameter("password"));
            
            
-            adminLoginDao Adao = new adminLoginDao();
             
             
-        try {
-            if((Adao.check(name, password))){
+            
+            if((Adao.adminLoginCheck(name, password))){
                 
                 HttpSession session = request.getSession();
                 session.setAttribute("adminemail", name);
@@ -57,11 +61,6 @@ public class adminlogin extends HttpServlet {
                 response.sendRedirect("adminlogin.jsp");
                 
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(adminlogin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(adminlogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         
        

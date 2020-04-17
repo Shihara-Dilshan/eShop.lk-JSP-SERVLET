@@ -25,7 +25,7 @@
     <body id="Home" class="scrollspy test" background="image/woman-draw-a-light-bulb-in-white-board-37581051.jpg">
         
     
-     <%@ include file="includes\headerNormal.jsp"  %>  
+     <%@ include file="includes/headerNormal.jsp"  %>  
             
    
 
@@ -114,7 +114,7 @@
           });
       </script>
       
-      <%@ include file="includes\adminfooter.jsp"  %> 
+      <%@ include file="includes/adminfooter.jsp"  %> 
       
       
     </body>
