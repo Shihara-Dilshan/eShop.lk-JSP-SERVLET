@@ -17,7 +17,7 @@
       <ul class="right hide-on-med-and-down">
        
          <li><a href="adminindex.jsp">Dash Board</a></li>
-        <li><a href="addBrand.jsp">Add Brand</a></li>
+        <li><a href="addItem.jsp">Add Item</a></li>
         <li><a href="AddCat.jsp">Add Category</a></li>
         <li><a href="#">Change password</a></li>
         <li><a href="confirmAdminLogout.jsp">Log out</a></li>
@@ -34,7 +34,7 @@
   <ul class="sidenav" id="mobile-demo">
        
          <li><a href="adminindex.jsp">Dash Board</a></li>
-        <li><a href="addBrand.jsp">Add Brand</a></li>
+        <li><a href="addItem.jsp">Add Item</a></li>
         <li><a href="AddCat.jsp">Add Category</a></li>
         <li><a href="#.jsp">Change password</a></li>
         <li><a href="confirmAdminLogout.jsp">Log out</a></li>

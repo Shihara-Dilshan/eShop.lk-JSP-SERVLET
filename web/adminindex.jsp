@@ -1,4 +1,4 @@
- <%-- 
+<%-- 
     Document   : adminindex
     Created on : Mar 7, 2020, 6:41:02 PM
     Author     : noobmaster
@@ -16,7 +16,7 @@
         }
             
     %>        
-    
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -65,7 +65,7 @@
                 
                  <div class="card-content teal-text"> 
                
-                    <h4>25</h4>
+                    <h4>6</h4>
                 </div>
                 
                 

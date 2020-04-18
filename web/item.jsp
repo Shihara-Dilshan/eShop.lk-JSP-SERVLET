@@ -1,3 +1,9 @@
+<%-- 
+    Document   : item
+    Created on : Apr 18, 2020, 10:46:44 PM
+    Author     : noobmaster
+--%>
+
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.sql.Blob"%>
 <%@page import="java.sql.ResultSet"%>
@@ -25,105 +31,81 @@
 <%@ include file="includes/Navbar.jsp"  %>  
   
 
-
-
-<div class="slider">
-    <ul class="slides">
-        <li>
-            <img src="image/erik-mclean-nfoRa6NHTbU-unsplash.jpg"> <!-- random image -->
-            <div class="caption center-align">
-                <h3>Fashion With a leap</h3>
-                <h5 class="light grey-text text-lighten-3"> Up to 50% Discounts on your cloths</h5>
-            </div>
-        </li>
-        <li>
-            <img src="image/architecture-buildings-business-car-331990.jpg"> <!-- random image -->
-            <div class="caption left-align">
-                <h3>24/7 Service available</h3>
-                <h5 class="light grey-text text-lighten-3">Shop anytime anywhere</h5>
-            </div>
-        </li>
-        <li>
-            <img src="image/brooke-cagle-WHWYBmtn3_0-unsplash.jpg"> <!-- random image -->
-            <div class="caption left-align">
-                <h3>All about your choice</h3>
-                <h5 class="light grey-text text-lighten-3">100000+ items. 300+ manufactures </h5>
-            </div>
-        </li>
-        <li>
-            <img src="image/sahin-yesilyaprak-9eGMyzOSyYE-unsplash.jpg"> <!-- random image -->
-            <div class="caption left-align">
-                <h3>Fast delivery</h3>
-                <h5 class="light grey-text text-lighten-3">Shop.lk provides fast and secure delivery service</h5>
-            </div>
-        </li>
-        <div id="search" class="scrollspy"></div>
-    </ul>
-</div >
-
+<script>
+    
+    document.addEventListener('DOMContentLoaded' , function(){
         
+      
+       var showList = document.getElementsByClassName('<%= request.getParameter("show") %>');
+       var i;
+       
+       
+       for(i=0; i < showList.length; i++){
+            
+            showList[i].classList.add('show'); 
+            showList[i].classList.remove('hide');
+           
+       }
+    
+   
+    });
+    
+   
+    
+</script>
 
-
-<section id="search" class="scrollspy">
-    <div id="search" class="section section-search teal darken-1 white-text center">
-        <div class="row">
-            <div class="col s12">
-                <h4>Search Here</h4>
-                <div class="input-field">
-                    <form action="search" method="get">
-
-                        <input type="text" class="white grey-text autocomplete" id="autocomplete-input" placeholder="Rooms , Other products, ect...">
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
 
 
 <section id="popular" class="section section-popular scrollspy">
-    <div class="container">
+    <div class="container" id="items">
        
 
-            <h4 class="center"><span class="teal-text">Popular</span> Categories</h4>
+            <h4 class="center">Popular <span class="teal-text"><%= request.getParameter("show") %></span></h4>
             <%
                 DataSource source = new DataSource();
                 Connection con = source.createConnection();
-                PreparedStatement st = con.prepareStatement("select * from category");
+                PreparedStatement st = con.prepareStatement("select * from item");
     
                 ResultSet rs =st.executeQuery();
                 int x = 1;
+                
                 while(rs.next()){
                 
                   
 
             %>
             <div class="row">
-                <div class="col s12 m4">
-                    <div class="card">
+                <div class="col s12 m4 hide <%=rs.getString("catName") %>">
+                    <div class="card large">
                         <div class="card-image">
                             
-                            <img src="image/<%=rs.getString("CfileName") %>">
-                            <span class="card-title"><%=rs.getString("Cname") %></span>
+                            <img src="image/<%=rs.getString("filename") %>">
+                            <p class="card-title"><%=rs.getString("name") %></p>
                         </div>
                         <div class="card-content">
-                            <p><%=rs.getString("CDescription") %></p>
+                             
+                          
+                             <p class="teal-text">About : <span class="right"><span class="black-text"></span> <span class="black-text"><%=rs.getString("descr") %></span></span></p>
+                             <p class="teal-text">Price : <span class="right"><span class="black-text"> </span> <span class="black-text"><%=rs.getString("price") %></span></span></p>
+                             <p class="teal-text">Stocks Available : <span class="right"><span class="black-text"><%=rs.getString("qty") %></span><span class="black-text"> Units</span></span></p>
+                             <p class="teal-text">Cash Return within: <span class="right"><span class="black-text"> 7 </span><span class="black-text">  days</span></span></p>
+                             <p class="teal-text">Warrenty : <span class="right"><span class="black-text"> 3 </span><span class="black-text">   Months</span></span></p>
                         </div>
                         <div class="card-action">
-                           
-                             <a href="item.jsp?show=<%=rs.getString("Cname") %>" class="btn" style="width:100%;">Explore</a>
+                             
+                            
+                             <a href="#" class="btn" style="width:100%;">Add To Cart  <i class="material-icons" style="vertical-align:-6px;">add_shopping_cart</i></a>
                   
                         </div>
                     </div>
                         
                 </div>
+                        
+                    
+                        
+                <!--fix a small bug n the UI-->       
                 <%if(x%3==0){%> 
-                <h6>.</h6>
+                <h6 class="dot"></h6>
                 <%} %>
              <% 
              
@@ -140,46 +122,6 @@
     
 </section>
 
-
-
-<section class="section section-icons grey lighten-4 center scrollspy">
-    <div class="container">
-        <div class="row">
-
-            <div class="col s12 m4">
-                <div class="card-panel">
-                    <i class="material-icons large teal-text">commute</i>
-                    <h4>Island wide delivery</h4>
-                    <p> Your item will be delivered within 5 days</p>
-                </div>
-
-            </div>
-            <div class="col s12 m4">
-                <div class="card-panel">
-                    <i class="material-icons large teal-text">store</i>
-                    <h4>To your Door step</h4>
-                    <p> We delivery to your door step </p>
-
-                </div>
-
-            </div>
-            <div class="col s12 m4">
-                <div class="card-panel">
-                    <i class="material-icons large teal-text">airplanemode_active</i>
-                    <h4>Over seas delivery</h4>
-                    <p>We deliver some countries. <span class="span teal-text"> <a href="#">Check here</a></span></p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-</section>
 
 
 
@@ -294,59 +236,13 @@
 
 </section>
 
-<section id="contact" class="section section-contact scrollspy">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card-panel teal white-text center">
-
-                    <i class="material-icons">email</i>
-                    <h5>Any matters with our products</h5>
-
-
-                </div>   
-                <ul class="collection with-header">
-                    <li class="collection-header"><h4>Head Office</h4></li>
-                    <li class="collection-item">eShop.lk</li>
-                    <li class="collection-item">55/F Alapalavala</li>
-                    <li class="collection-item">Handessa </li>
-                </ul>
-            </div>
-            <div class="col s12 m6">
-                <h5>Please Fill out this from</h5>  
-                <div class="input-field">
-                    <input type="text" placeholder="name" id="name">
-
-                </div>
-                <div class="input-field">
-                    <input type="text" placeholder="email" id="email">
-
-                </div>
-                <div class="input-field">
-                    <input type="text" placeholder="mobile" id="mobile">
-
-                </div>
-                <div class="input-field">
-                    <textarea placeholder="massage" id="massage" class="materialize-textarea"></textarea>
-                    <input type="submit" value="submit" class="btn" style="width:100%;">
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-</section>
 
 
 <!--JavaScript at end of body for optimized loading-->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/removeVal.js"></script>
+<script type="text/javascript" src="js/App.js"></script>
 <script>
           
     $(document).ready(function(){
@@ -368,32 +264,7 @@
     $('.materialboxed').materialbox();
     });
           
-    $(document).ready(function(){
-    $('input.autocomplete').autocomplete({
-          data: {
-                 "Nike": null,
-                 "Asus": null,
-                 "Laptop": null,
-                 "Laptops": null,
-                 "Adiddas": null,
-                 "Toys": null,
-                 "Shoes": null,
-                 "PC": null,
-                 "iphone": null,
-                 "Paintings": null,
-                 "Mobile Phones": null,
-                 "Samsung": null,
-                 "Apple": null,
-                 "LG": null,
-                 "Huwaei": null,
-                 "Television": null,
-                 "Fasion": null,
-                 "Perfumes": null,
-                 "Clothes": null,
-                 "Rings": 'https://placehold.it/250x250'
-    },
-    });
-    });
+    
          
           
 </script>

@@ -15,8 +15,30 @@ public class UserDaoImplement implements UserDao{
     private final String sqlULogin = "select * from user where name=? and password=?"; 
     private final String sqlSignup = "insert into user( id,name,password) values(4,?,?)";
     
-    //check admin's credentials validity
     @Override
+    public boolean adminLoginCheck(){
+        
+        return false;
+        
+    }
+    
+    @Override
+    public boolean loginCheck(){
+        
+        return false;
+        
+    }
+    
+    @Override
+    public boolean signUp(){
+        
+        return false;
+        
+    }
+    
+    
+    
+    //overloading the real adminLoginCheck function
     public boolean adminLoginCheck(String name , String password) {
             
             
@@ -47,8 +69,8 @@ public class UserDaoImplement implements UserDao{
             return false;
     }
     
-     //check user's credentials validity
-    @Override
+    
+    //overloading the real loginCheck function
     public boolean loginCheck(String name , String password) {
     
             
@@ -81,8 +103,7 @@ public class UserDaoImplement implements UserDao{
             return false;
     }
     
-     //new user sign up
-    @Override
+    //overloading the real signUp function
     public boolean signUp(String name , String password) {
     
             

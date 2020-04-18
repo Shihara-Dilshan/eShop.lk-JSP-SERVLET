@@ -1,4 +1,3 @@
-
 package lk.eShop;
 
 import java.io.IOException;
@@ -43,10 +42,6 @@ public class adminlogin extends HttpServlet {
             
             setName(request.getParameter("email"));
             setPassword(request.getParameter("password"));
-           
-           
-            
-            
             
             if((Adao.adminLoginCheck(name, password))){
                 
