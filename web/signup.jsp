@@ -41,7 +41,7 @@
     
     <% } %> 
 
-  
+    <%@ include file="includes/cart.jsp"  %>  
       
      
       
@@ -145,6 +145,7 @@
       <!--Java script at end of body for optimized loading-->
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+           <script type="text/javascript" src="js/App.js"></script>
 
       <script>
           $(document).ready(function(){
@@ -167,5 +168,7 @@
 
       
      <%@ include file="includes\footer.jsp"  %> 
+     
+
     </body>
   </html>

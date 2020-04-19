@@ -50,10 +50,32 @@
    
     });
     
+    document.addEventListener('DOMContentLoaded' , function(){
+        
+      var type = "showAll";
+      var i;
+        
+      if(type === '<%= request.getParameter("show") %>' ){
+      
+        var showItems = document.getElementsByClassName('showA');
+        
+        for(i = 0; i < showItems.length; i++){
+            
+            showItems[i].classList.add('show'); 
+            showItems[i].classList.remove('hide');
+            
+            
+        }
+    
+      }
+       
+   
+    });
    
     
 </script>
 
+<%@ include file="includes/cart.jsp"  %>  
 
 
 <section id="popular" class="section section-popular scrollspy">
@@ -75,7 +97,7 @@
 
             %>
             <div class="row">
-                <div class="col s12 m4 hide <%=rs.getString("catName") %>">
+                <div class="col s12 m4 hide showA <%=rs.getString("catName") %>">
                     <div class="card large">
                         <div class="card-image">
                             
@@ -271,5 +293,7 @@
 
 
 <%@ include file="includes/footer.jsp"  %> 
+
+
 </body>
 </html>

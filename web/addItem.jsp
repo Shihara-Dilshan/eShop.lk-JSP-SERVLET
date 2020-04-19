@@ -47,6 +47,7 @@
     
    
      <%@ include file="includes\adminheaderNormal.jsp"  %>  
+     
             
      
       <form action="addItem" method="post" enctype="multipart/form-data">  

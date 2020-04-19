@@ -17,11 +17,11 @@
        
         <li><a href="index.jsp">Home</a></li>
         <li><a href="#search">Search</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="item.jsp?show=showAll">Products</a></li>
         <li><a href="signup.jsp">My Account</a></li>
         <li><a href="confirmLogout.jsp">logout</a></li>
-        <li><a href="#" class="btn-floating teal darken-4 z-depth-0">
-          <i class="material-icons">add_shopping_cart</i>
+        <li><a href="#" class="btn-floating teal darken-4 z-depth-0" id="cartIcon">
+          <i class="material-icons" id="cartIcon" onclick="aa()">add_shopping_cart</i>
         
         </a></li>
         <li>
@@ -38,11 +38,11 @@
        
          <li><a href="index.jsp">Home</a></li>
         <li><a href="#search">Search</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="item.jsp?show=showAll">Products</a></li>
         <li><a href="signup.jsp">My Account</a></li>
         <li><a href="confirmLogout.jsp">logout</a></li>
-        <li><a href="https://www.facebook.com" class="btn-floating white darken-4 z-depth-0">
-          <i class="material-icons">add_shopping_cart</i>
+        <li><a href="#" class="btn-floating white darken-4 z-depth-0" id="cartIcon">
+          <i class="material-icons" id="cartIcon" onclick="aa()">add_shopping_cart</i>
         
         </a></li>
         <li>

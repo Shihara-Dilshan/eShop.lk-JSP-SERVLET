@@ -86,3 +86,28 @@
             
         }
         
+
+        .showCart{
+
+            display: block;
+
+
+
+        }
+
+        .hideCart{
+
+            display: none;
+
+        }
+
+        #cart{
+
+            position: fixed; 
+            z-index: 1; 
+            top: auto;
+            right: 5px; 
+            width: 700px; 
+
+
+        }

@@ -23,11 +23,9 @@
 <body id="Home" class="scrollspy test">
   
 <%@ include file="includes/Navbar.jsp"  %>  
-  
+<%@ include file="includes/cart.jsp"  %>  
 
-
-
-<div class="slider">
+<div class="slider" style="z-index: -1">
     <ul class="slides">
         <li>
             <img src="image/erik-mclean-nfoRa6NHTbU-unsplash.jpg"> <!-- random image -->
@@ -84,6 +82,7 @@
 
     </div>
 </section>
+
 
 
 <section id="popular" class="section section-popular scrollspy">
@@ -347,6 +346,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/removeVal.js"></script>
+<script type="text/javascript" src="js/App.js"></script>
 <script>
           
     $(document).ready(function(){
