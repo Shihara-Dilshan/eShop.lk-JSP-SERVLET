@@ -3,6 +3,13 @@
     Created on : Apr 19, 2020, 5:00:30 AM
     Author     : noobmaster
 --%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="lk.eShop.dao.Item"%>
+   
+
+
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,12 +29,47 @@
                             <h6 class="center-align">
                                 Your Cart items will show here
                             </h6>
+                            
+                            <%
+                                ArrayList<Item> arrayList = new ArrayList<Item>();
+                                if (request.getServletContext().getAttribute("cartItemList") != null) {
+                                    arrayList = (ArrayList<Item>)request.getServletContext().getAttribute("cartItemList");
+                                }
+                                
+                                if(!arrayList.isEmpty()){
+                                
+                                      for(Item item : arrayList){
+                                
+                               
+                                          
+                            %>
+                            
+                            
+                            
                             <div id="purchList" style="overflow: show;">
-                                <li id="plist">
+                                <div style="display:table;width: 100%">
+                                    
+                                    <input style="display: table-cell;" value="<%=item.getItemName() %>">  
 
-                                </li>
+                                    <i class="material-icons" id="cartIcon" onclick="aa()"
+                                       style="display: table-cell; text-align: right;">edit</i>
+                                    <i class="material-icons" id="cartIcon" onclick="aa()"
+                                       style="display: table-cell; text-align: right;">delete</i>
+                                </div>
 
                             </div>
+                            
+                            
+                           <%
+                           
+                                      }
+                                      
+                                }
+                           
+                           %>
+                            
+                           
+
                             <div style="display: table;padding-top: 20px;" class="teal-text">
 
                                 <div id="total">

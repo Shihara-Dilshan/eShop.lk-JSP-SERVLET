@@ -10,6 +10,9 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="lk.eShop.dao.DataSource"%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,7 +119,7 @@
                         <div class="card-action">
                              
                             
-                             <a href="#" class="btn" style="width:100%;">Add To Cart  <i class="material-icons" style="vertical-align:-6px;">add_shopping_cart</i></a>
+                             <a href="addItemToCart?show=<%=rs.getString("catName") %>&item=<%=rs.getString("name") %>&price=<%=rs.getString("price") %>" class="btn" style="width:100%;">Add To Cart  <i class="material-icons" style="vertical-align:-6px;">add_shopping_cart</i></a>
                   
                         </div>
                     </div>
